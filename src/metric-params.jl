@@ -49,3 +49,6 @@ inner_radius(m::AbstractMetricParams{T})::T where {T} = 0.0
 Return the [`AbstractMetric`](@ref) type associated with the metric parameters `m`.
 """
 metric_type(m::AbstractMetricParams{T}) where {T} = error("Not implemented for metric parameters $(typeof(m))")
+
+
+export AbstractMetricParams, geodesic_eq, geodesic_eq!, constrain, on_chart, inner_radius, metric_type
