@@ -1,0 +1,4 @@
+name = "GeodesicBase"
+uuid = "1f539516-e6d2-4f24-ab09-50f3ac3c4a5a"
+authors = ["fjebaker <fergusbkr@gmail.com>"]
+version = "0.1.0"
