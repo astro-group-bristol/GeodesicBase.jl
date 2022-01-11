@@ -30,7 +30,7 @@ Check if point `u` is a valid point for the metric described by `m`.
 
 Returns false is `u` is a singularity.
 """
-on_chart(m::AbstractMetricParams{T}, u) where {T} = error("Not implemented for metric parameters $(typeof(m))")
+on_chart(m::AbstractMetricParams{T}, u) where {T} = !(sum(u) ≈ 0)
 
 
 """
