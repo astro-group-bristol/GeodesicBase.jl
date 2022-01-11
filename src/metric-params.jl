@@ -11,7 +11,7 @@ abstract type AbstractMetricParams{T} end
 
 Return components of the geodesic equation for the metric described by `m`.
 """
-geodesic_eq(m::AbstractMetricParams{T}) = error("Not implemented for metric parameters $(typeof(m))")
+geodesic_eq(m::AbstractMetricParams{T}) where {T} = error("Not implemented for metric parameters $(typeof(m))")
 
 
 """
@@ -20,7 +20,7 @@ geodesic_eq(m::AbstractMetricParams{T}) = error("Not implemented for metric para
 Give time component which would constrain a velocity vector `v` at position `x` to be a
 geodesic with mass `μ`.
 """
-constrain(m::AbstractMetricParams{T}, u, v; μ=0.0) = error("Not implemented for metric parameters $(typeof(m))")
+constrain(m::AbstractMetricParams{T}, u, v; μ=0.0) where {T} = error("Not implemented for metric parameters $(typeof(m))")
 
 
 """
@@ -30,7 +30,7 @@ Check if point `u` is a valid point for the metric described by `m`.
 
 Returns false is `u` is a singularity.
 """
-on_chart(m::AbstractMetricParams{T}, u) = error("Not implemented for metric parameters $(typeof(m))")
+on_chart(m::AbstractMetricParams{T}, u) where {T} = error("Not implemented for metric parameters $(typeof(m))")
 
 
 """
@@ -38,4 +38,4 @@ on_chart(m::AbstractMetricParams{T}, u) = error("Not implemented for metric para
 
 Return the [`AbstractMetric`](@ref) type associated with the metric parameters `m`.
 """
-metric_type(m::AbstractMetricParams{T}) = error("Not implemented for metric parameters $(typeof(m))")
+metric_type(m::AbstractMetricParams{T}) where {T} = error("Not implemented for metric parameters $(typeof(m))")
