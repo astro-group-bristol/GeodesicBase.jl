@@ -34,14 +34,14 @@ on_chart(m::AbstractMetricParams{T}, u) where {T} = !(sum(u) ≈ 0)
 
 
 """
-    inner_radius(m::AbstractMetricParams{T})::T
+    inner_radius(m::AbstractMetricParams{T})
 
 Return the innermost valid coordinate relative to the origin, for use in geodesic tracing.
 
 This usually represents some property of the metric, e.g. event horizon radius in Kerr/Schwarzschild metrics, or 
 throat diameter in worm hole metrics.
 """
-inner_radius(m::AbstractMetricParams{T})::T where {T} = 0.0
+inner_radius(m::AbstractMetricParams{T}) where {T} = convert(T, 0.0)
 
 """
     metric_type(m::AbstractMetricParams{T})
