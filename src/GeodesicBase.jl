@@ -1,5 +1,7 @@
 module GeodesicBase
 
+include("metric-params.jl")
+
 # contains the full metric components (this type needed for DiffGeoSymbolics)
 abstract type AbstractMetric{T} <: AbstractMatrix{T} end
 
