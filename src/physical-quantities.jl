@@ -9,7 +9,7 @@
 
 Compute the energy for a numerically evaluated metric, and some velocity four vector `v`.
 """
-function E(m::AbstractMatrix{T}, v) where {T}
+function E(metric::AbstractMatrix{T}, v) where {T}
     T(@inbounds metric[1, 1] * v[1] + metric[1, 4] * v[4])
 end
 
@@ -19,6 +19,6 @@ end
 
 Compute the angular momentum for a numerically evaluated metric, and some velocity four vector `v`.
 """
-function Lz(m::AbstractMatrix{T}, v) where {T}
+function Lz(metric::AbstractMatrix{T}, v) where {T}
     T(@inbounds -metric[4,4] * v[4] - metric[1,4] * v[1])
 end
