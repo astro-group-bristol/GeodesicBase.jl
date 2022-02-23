@@ -6,6 +6,11 @@ Abstract type used to dispatch different geodesic problems.
 abstract type AbstractMetricParams{T} end
 
 
+# contains the full metric components (this type needed for DiffGeoSymbolics)
+abstract type AbstractMetric{T} <: AbstractMatrix{T} end
+
+metric_params(m::AbstractMetric{T}) where {T} = error("Not implemented for metric $(typeof(m))")
+
 """
     geodesic_eq(m::AbstractMetricParams{T}, u, v)
     geodesic_eq!(m::AbstractMetricParams{T}, u, v)
@@ -24,7 +29,7 @@ geodesic with mass `μ`.
 constrain(m::AbstractMetricParams{T}, u, v; μ::T=0.0) where {T} = error("Not implemented for metric parameters $(typeof(m))")
 
 """
-    on_chart(m::AbstractMetricParams{T}, u::AbstractVector)
+    on_chart(m::AbstractMetricParams{T}, u)
 
 Check if point `u` is a valid point for the metric described by `m`.
 
@@ -50,5 +55,20 @@ Return the [`AbstractMetric`](@ref) type associated with the metric parameters `
 """
 metric_type(m::AbstractMetricParams{T}) where {T} = error("Not implemented for metric parameters $(typeof(m))")
 
+
+"""
+    metric(m::AbstractMetricParams{T}, u) 
+
+Numerically evaluate the corresponding metric for [`AbstractMetricParams`](@ref), given parameter values `m`
+and some point `u`.
+"""
+metric(m::AbstractMetricParams{T}, u) where {T} = error("Not implemented for metric $(typeof(m))")
+
+"""
+    metric(m::AbstractMetric{T}, u) 
+
+Evaluate the metric at a point `u`.
+"""
+metric(m::AbstractMetric{T}, u) where {T} = error("Not implemented for metric $(typeof(m))")
 
 export AbstractMetricParams, geodesic_eq, geodesic_eq!, constrain, on_chart, inner_radius, metric_type
