@@ -64,11 +64,13 @@ and some point `u`.
 """
 metric(m::AbstractMetricParams{T}, u) where {T} = error("Not implemented for metric $(typeof(m))")
 
-"""
-    metric(m::AbstractMetric{T}, u) 
-
-Evaluate the metric at a point `u`.
-"""
-metric(m::AbstractMetric{T}, u) where {T} = error("Not implemented for metric $(typeof(m))")
+# do we actually want to support this?
+# since if it's a symbolic matrix, you can subs other ways better?
+#"""
+#    metric(m::AbstractMetric{T}, u) 
+#
+#Evaluate the metric at a point `u`.
+#"""
+#metric(m::AbstractMetric{T}, u) where {T} = error("Not implemented for metric $(typeof(m))")
 
 export AbstractMetricParams, geodesic_eq, geodesic_eq!, constrain, on_chart, inner_radius, metric_type
