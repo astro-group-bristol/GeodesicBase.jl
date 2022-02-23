@@ -4,16 +4,21 @@
 # need to think of a nice way to keep this efficient
 # whilst allowing metrics with other couplings
 
+"""
+    E(m::AbstractMatrix{T}, v) 
+
+Compute the energy for a numerically evaluated metric, and some velocity four vector `v`.
+"""
 function E(m::AbstractMatrix{T}, v) where {T}
-    @inbounds metric[1, 1] * v[1] + metric[1, 4] * v[4]
+    T(@inbounds metric[1, 1] * v[1] + metric[1, 4] * v[4])
 end
 
 
 """
-    Lz(m::AbstractMetricParams{T}, v)
+    Lz(m::AbstractMatrix{T}, v)
 
-Compute the angular momentum for a 
+Compute the angular momentum for a numerically evaluated metric, and some velocity four vector `v`.
 """
 function Lz(m::AbstractMatrix{T}, v) where {T}
-    @inbounds -metric[4,4] * v[4] - metric[1,4] * v[1]
+    T(@inbounds -metric[4,4] * v[4] - metric[1,4] * v[1])
 end
