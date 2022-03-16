@@ -29,5 +29,5 @@ L_z = p_\\phi = - g_{\\phi\\nu} p^\\nu.
 ```
 """
 function Lz(metric::AbstractMatrix{T}, v) where {T}
-    T(@inbounds metric[4,4] * v[4] + metric[1,4] * v[1])
+    T(@inbounds metric[4, 4] * v[4] + metric[1, 4] * v[1])
 end
