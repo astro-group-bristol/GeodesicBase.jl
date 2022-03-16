@@ -9,7 +9,8 @@ abstract type AbstractMetricParams{T} end
 # contains the full metric components (this type needed for DiffGeoSymbolics)
 abstract type AbstractMetric{T} <: AbstractMatrix{T} end
 
-metric_params(m::AbstractMetric{T}) where {T} = error("Not implemented for metric $(typeof(m))")
+metric_params(m::AbstractMetric{T}) where {T} =
+    error("Not implemented for metric $(typeof(m))")
 
 """
     geodesic_eq(m::AbstractMetricParams{T}, u, v)
@@ -17,8 +18,10 @@ metric_params(m::AbstractMetric{T}) where {T} = error("Not implemented for metri
 
 Calculate the acceleration components of the geodesic equation given a position `u`, a velocity `v`, and a metric `m`.
 """
-geodesic_eq(m::AbstractMetricParams{T}, u, v) where {T} = error("Not implemented for metric parameters $(typeof(m))")
-geodesic_eq!(m::AbstractMetricParams{T}, u, v) where {T} = error("Not implemented for metric parameters $(typeof(m))")
+geodesic_eq(m::AbstractMetricParams{T}, u, v) where {T} =
+    error("Not implemented for metric parameters $(typeof(m))")
+geodesic_eq!(m::AbstractMetricParams{T}, u, v) where {T} =
+    error("Not implemented for metric parameters $(typeof(m))")
 
 """
     constrain(m::AbstractMetricParams{T}, u, v; μ::T=0.0f0)
@@ -26,7 +29,8 @@ geodesic_eq!(m::AbstractMetricParams{T}, u, v) where {T} = error("Not implemente
 Give time component which would constrain a velocity vector `v` at position `x` to be a
 geodesic with mass `μ`.
 """
-constrain(m::AbstractMetricParams{T}, u, v; μ::T=0.0) where {T} = error("Not implemented for metric parameters $(typeof(m))")
+constrain(m::AbstractMetricParams{T}, u, v; μ::T = 0.0) where {T} =
+    error("Not implemented for metric parameters $(typeof(m))")
 
 """
     on_chart(m::AbstractMetricParams{T}, u)
@@ -53,7 +57,8 @@ inner_radius(m::AbstractMetricParams{T}) where {T} = convert(T, 0.0)
 
 Return the [`AbstractMetric`](@ref) type associated with the metric parameters `m`.
 """
-metric_type(m::AbstractMetricParams{T}) where {T} = error("Not implemented for metric parameters $(typeof(m))")
+metric_type(m::AbstractMetricParams{T}) where {T} =
+    error("Not implemented for metric parameters $(typeof(m))")
 
 
 """
@@ -62,7 +67,8 @@ metric_type(m::AbstractMetricParams{T}) where {T} = error("Not implemented for m
 Numerically evaluate the corresponding metric for [`AbstractMetricParams`](@ref), given parameter values `m`
 and some point `u`.
 """
-metric(m::AbstractMetricParams{T}, u) where {T} = error("Not implemented for metric $(typeof(m))")
+metric(m::AbstractMetricParams{T}, u) where {T} =
+    error("Not implemented for metric $(typeof(m))")
 
 # do we actually want to support this?
 # since if it's a symbolic matrix, you can subs other ways better?
@@ -73,4 +79,5 @@ metric(m::AbstractMetricParams{T}, u) where {T} = error("Not implemented for met
 #"""
 #metric(m::AbstractMetric{T}, u) where {T} = error("Not implemented for metric $(typeof(m))")
 
-export AbstractMetricParams, geodesic_eq, geodesic_eq!, constrain, on_chart, inner_radius, metric_type
+export AbstractMetricParams,
+    geodesic_eq, geodesic_eq!, constrain, on_chart, inner_radius, metric_type
